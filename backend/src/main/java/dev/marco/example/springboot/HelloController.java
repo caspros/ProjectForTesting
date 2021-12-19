@@ -41,7 +41,7 @@ public class HelloController {
             );
             result = studentsList.toString();
         }catch(Exception e){ System.out.println(e);}
-
+        students.add("Message from backend");
         return Collections.singletonMap("message", students);
     }
 
