@@ -48,7 +48,7 @@ public class HelloController {
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             String sStackTrace = sw.toString();
-            students.add(e);
+            students.add(sStackTrace);
         }
         students.add("Message from backend");
         return Collections.singletonMap("message", students);
