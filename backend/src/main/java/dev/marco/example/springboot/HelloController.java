@@ -40,7 +40,7 @@ public class HelloController {
 
             );
             result = studentsList.toString();
-        }catch(Exception e){ System.out.println(e);}
+        }catch(Exception e){ students.add(e);}
         students.add("Message from backend");
         return Collections.singletonMap("message", students);
     }
