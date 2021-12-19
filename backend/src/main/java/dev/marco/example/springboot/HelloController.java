@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.sql.*;
 
+import java.io.StringWriter;
+import java.io.PrintWriter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,7 +43,13 @@ public class HelloController {
 
             );
             result = studentsList.toString();
-        }catch(Exception e){ students.add(e);}
+        }catch(Exception e){
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            String sStackTrace = sw.toString();
+            students.add(e);
+        }
         students.add("Message from backend");
         return Collections.singletonMap("message", students);
     }
